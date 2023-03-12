@@ -32,8 +32,8 @@ ENV TZ=Europe/Berlin
 RUN apk --update --no-cache add ca-certificates tzdata bash su-exec
 
 # add relevant files to container
-COPY --from=builder /tmp/nsq-discovery-consul /usr/sbin/nsq-discovery-consul
+COPY --from=builder /tmp/nsq-discovery-consul /nsq-discovery-consul
 ADD entry.sh /entry.sh
 
 ENTRYPOINT ["/entry.sh"]
-CMD /usr/sbin/nsq-discovery-consul
+CMD /nsq-discovery-consul
